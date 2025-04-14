@@ -3,10 +3,7 @@ import hashlib
 import os
 
 # Directory and file extension configurations
-directories = [
-    'c:\\Users\\wensal\\Downloads\\test',
-    'c:\\Users\\wensal\\Downloads\\css\\virus\\test'
-]
+directories = []
 file_extension = ".py"
 
 # Function to search for and remove injected code
