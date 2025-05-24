@@ -55,7 +55,7 @@ Each version follows the same high-level approach:
 ## ⚙️ Requirements
 
 - Python 3.x
-- Windows (for version 3’s visual payload)
+- Windows
 ---
 
 ## 🚨 WARNING
@@ -66,12 +66,6 @@ To test safely:
 - Use a virtual environment or sandbox
 - Run on disposable directories
 - Never test on production machines
-
----
-
-## 📚 License
-
-This project is licensed under the MIT License. See `LICENSE` for details.
 
 ---
 
